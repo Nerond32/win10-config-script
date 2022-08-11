@@ -1,0 +1,1 @@
+Short PowerShell script to configure fresh install of Windows.

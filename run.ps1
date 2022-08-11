@@ -7,20 +7,22 @@ function InstallPrograms()
 {
     InstallChocolatey
     choco feature enable -n allowGlobalConfirmation
-    choco install googlechrome
-    choco install firefox
     choco install 7zip.install
-    choco install sharex
+    choco install bitwarden
+    choco install calibre
     choco install f.lux
+    choco install firefox
     choco install git
+    choco install googlechrome
+    choco install obsidian
+    choco install nodejs.install
+    choco install notepadplusplus
+    choco install qbittorrent
+    choco install sharex
+    choco install spotify
     choco install steam
     choco install telegram.install
-    choco install spotify
     choco install vscode
-    choco install thunderbird
-    choco install tixati
-    choco install tor-browser
-    choco install nodejs.install
 }
 
 function RemoveBloatware()
@@ -37,6 +39,11 @@ function RemoveBloatware()
     Get-AppxPackage *Microsoft.GetHelp* | Remove-AppxPackage
     Get-AppxPackage XboxApp | Remove-AppxPackage
     Get-AppxPackage Microsoft.XboxGamingOverlay | Remove-AppxPackage
+}
+
+function SetDarkMode()
+{
+    Set-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize -Name AppsUseLightTheme -Value 0
 }
 
 function ShowFileExtensions() 
@@ -62,6 +69,7 @@ function RestartExplorer()
 
 function ChangeSettings() 
 {
+    SetDarkMode
     ShowFileExtensions
     ShowHiddenFilesAndFolders
     RestartExplorer
