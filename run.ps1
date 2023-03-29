@@ -3,26 +3,42 @@ function InstallChocolatey() {
     Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
 }
 
+function InstallBrowsers()
+{
+    choco install brave
+    choco install googlechrome
+    choco install firefox
+}
+
+function InstallDevTools()
+{
+    choco install git
+    choco install nodejs.install
+    choco install vscode
+}
+
+function InstallUtils()
+{
+    choco install 7zip.install
+    choco install bitwarden
+    choco install f.lux
+    choco install notepadplusplus
+    choco install qbittorrent
+    choco install sharex
+}
+
 function InstallPrograms()
 {
     InstallChocolatey
     choco feature enable -n allowGlobalConfirmation
-    choco install 7zip.install
-    choco install bitwarden
-    choco install calibre
-    choco install f.lux
-    choco install firefox
-    choco install git
-    choco install googlechrome
+    InstallBrowsers
+    InstallDevTools
+    InstallUtils
     choco install obsidian
-    choco install nodejs.install
-    choco install notepadplusplus
-    choco install qbittorrent
-    choco install sharex
     choco install spotify
     choco install steam
     choco install telegram.install
-    choco install vscode
+    choco install tutanota    
 }
 
 function RemoveBloatware()
